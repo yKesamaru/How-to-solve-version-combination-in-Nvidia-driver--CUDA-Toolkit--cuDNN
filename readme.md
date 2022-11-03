@@ -17,10 +17,10 @@ $ sudo dpkg -i cuda-keyring_1.0-1_all.deb
 $ sudo apt-get update
 $ sudo apt-get -y install cuda
 
-$ apt-get install -y nvidia-cuda-toolkit
-$ apt-get install -y libcudnn8
-$ apt-get install -y libcudnn8-dev
-$ apt-get install -y libcublas
+$ sudo apt-get install -y nvidia-cuda-toolkit
+$ sudo apt-get install -y libcudnn8
+$ sudo apt-get install -y libcudnn8-dev
+$ sudo apt-get install -y libcublas
 ```
 ところが推奨インストールされるドライバーなどのバージョンではシステムが正常に動かないことがまれにあります。
 そうした時の処方箋です。
