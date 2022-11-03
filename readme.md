@@ -1,5 +1,6 @@
 # title
 Nvidia driver, CUDA Toolkit, cuDNNにおけるバージョン組み合わせ解の解き方
+How to solve version combination solution in Nvidia driver, CUDA Toolkit, cuDNN
 # 環境
 ```bash
 $ inxi -SCGxx --filter
@@ -38,29 +39,29 @@ $ apt-get install -y libcublas
 # 詳細
 1. アーキテクチャを調べるには
    1. [List of Nvidia graphics processing units](https://en.wikipedia.org/wiki/List_of_Nvidia_graphics_processing_units)からお使いのGPUカードを検索してください。例えばGeForce 1660tiならば以下の画像のように表示されますので「アーキテクチャ = Turing」と分かります。
-   ![](img/PASTE_IMAGE_2022-11-03-18-04-25.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-04-25.png)
 2. ディスプレイドライバのバージョンを知るには
    1. [NVIDIAドライバダウンロード](https://www.nvidia.co.jp/Download/index.aspx?lang=jp)にアクセスして持っているビデオカードやOSの種類を選択して検索ボタンを押すと、どのドライバが良いか結果を出してくれます。ダウンロードタイプは「製品ブランチ」を選んでください。
-   ![](img/PASTE_IMAGE_2022-11-03-18-06-01.png)
-   ![](img/PASTE_IMAGE_2022-11-03-18-06-18.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-06-01.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-06-18.png)
 3. GPU Compute Capabilityを知るには
    1. [GPUs supported](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)の項のテーブルから検索します。
-   ![](img/PASTE_IMAGE_2022-11-03-18-41-25.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-41-25.png)
    たとえばGeForce GTX 1660 Tiなら「7.5」であることが分かります。
-   ![](img/PASTE_IMAGE_2022-11-03-18-41-52.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-41-52.png)
 4. CUDA Toolkitのバージョンを知るには
    1. [cuDNN Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html#abstract)を参照してアーキテクチャから調べます。CUDA Compute CapabilityはGPU Compute Capabilityのことです。上述したとおり「7.5」なのでここでは複数のバージョンを選べるよということになります。
-   ![](img/PASTE_IMAGE_2022-11-03-18-43-16.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-43-16.png)
    どれを選ぶかは上述した「ドライバのバージョン」を参考にします。
    [Table 3. CUDA Toolkit and Corresponding Driver Versions](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions)を参照してください。
-   ![](img/PASTE_IMAGE_2022-11-03-18-44-15.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-44-15.png)
    ちなみにこのページは頻繁に更新されリンクも途切れやすくなっています。もしご自身のブックマークがリンク切れになった場合は「CUDA Toolkit Documentation」をキーワードとして検索してください。
-   ![](img/PASTE_IMAGE_2022-11-03-18-44-59.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-44-59.png)
    上の図より、ディスプレイドライバ「515.76」に対応するCUDA ToolkitのバージョンはCUDA 11.7であることが分かりました。
    
 5. cuDNNのバージョンを知るには
    1. 上述の「Table 1. Supported NVIDIA Hardware and CUDA Version」からcuDNNのバージョンは「8.6.0」ということが分かります。
-   ![](img/PASTE_IMAGE_2022-11-03-18-46-17.png)
+   ![](https://raw.githubusercontent.com/yKesamaru/How-to-solve-version-combination-in-Nvidia-driver--CUDA-Toolkit--cuDNN/master/img/PASTE_IMAGE_2022-11-03-18-46-17.png)
 6. 集めた情報を整理する
    1. 以上の作業から必要となるバージョンはこのようになります。
        - ディスプレイドライバのバージョン
