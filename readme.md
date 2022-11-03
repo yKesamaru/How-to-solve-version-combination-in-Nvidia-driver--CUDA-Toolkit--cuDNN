@@ -1,6 +1,5 @@
 # title
 Nvidia driver, CUDA Toolkit, cuDNNにおけるバージョン組み合わせ解の解き方
-How to solve version combination solution in Nvidia driver, CUDA Toolkit, cuDNN
 # 環境
 ```bash
 $ inxi -SCGxx --filter
